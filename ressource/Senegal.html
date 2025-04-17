@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teranga Craft Sénégal - Plateforme d'Artisanat Numérique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Variables couleurs Sénégal */
+    :root {
+      --vert: #00853f;
+      --jaune: #fcd116;
+      --rouge: #e31b23;
+      --vert-clair: #e6f2ed;
+      --jaune-clair: #fff9e6;
+      --rouge-clair: #fce8e9;
+      --noir: #222222;
+      --gris: #555555;
+      --gris-clair: #f5f5f5;
+      --blanc: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Ubuntu', sans-serif;
+      color: var(--noir);
+      line-height: 1.6;
+      background-color: var(--blanc);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--vert), var(--jaune), var(--rouge));
+      color: var(--blanc);
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      font-weight: 700;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      background-color: var(--blanc);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .logo i {
+      color: var(--vert);
+      font-size: 2.5rem;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: var(--vert);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    nav a {
+      color: var(--blanc);
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    nav a i {
+      margin-right: 8px;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      background-color: var(--rouge);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                  url('https://images.unsplash.com/photo-1613328207320-505fc464d8a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--blanc);
+      padding: 6rem 1rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background-color: var(--jaune);
+      color: var(--noir);
+      padding: 0.8rem 2rem;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      border: none;
+      margin: 0.5rem;
+    }
+
+    .btn:hover {
+      background-color: var(--rouge);
+      color: var(--blanc);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid var(--blanc);
+      color: var(--blanc);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--blanc);
+      color: var(--vert);
+    }
+
+    /* Sections */
+    .section {
+      padding: 5rem 1rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--vert);
+      position: relative;
+    }
+
+    .section-title:after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--jaune);
+      margin: 1rem auto;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Cards Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--blanc);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .card-img {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover .card-img img {
+      transform: scale(1.1);
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .card-title {
+      color: var(--vert);
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    /* About Section */
+    .about {
+      background-color: var(--vert-clair);
+    }
+
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .about-text {
+      flex: 1 1 50%;
+    }
+
+    .about-image {
+      flex: 1 1 40%;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Features */
+    .features {
+      background-color: var(--jaune-clair);
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--rouge);
+      margin-bottom: 1rem;
+    }
+
+    /* Products */
+    .products {
+      background-color: var(--gris-clair);
+    }
+
+    /* Training */
+    .training-card {
+      background: var(--blanc);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .training-header {
+      background-color: var(--vert);
+      color: var(--blanc);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .training-body {
+      padding: 1.5rem;
+    }
+
+    .training-list {
+      list-style: none;
+    }
+
+    .training-list li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .training-list li:before {
+      content: "✓";
+      color: var(--vert);
+      position: absolute;
+      left: 0;
+    }
+
+    /* Services */
+    .services {
+      background-color: var(--rouge-clair);
+    }
+
+    .service-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-icon {
+      font-size: 1.5rem;
+      color: var(--rouge);
+      margin-right: 1rem;
+      margin-top: 0.3rem;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .contact-info {
+      background-color: var(--vert-clair);
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .contact-info h3 {
+      color: var(--vert);
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-info i {
+      margin-right: 0.8rem;
+      color: var(--vert);
+      width: 1.5rem;
+      text-align: center;
+    }
+
+    .contact-form {
+      background-color: var(--gris-clair);
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: inherit;
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--vert);
+      color: var(--blanc);
+      padding: 3rem 1rem 1rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      margin-bottom: 1rem;
+    }
+
+    .footer-title {
+      color: var(--jaune);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-links a {
+      color: var(--blanc);
+      display: block;
+      margin-bottom: 0.5rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--jaune);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      color: var(--blanc);
+      background-color: rgba(255,255,255,0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background-color: var(--jaune);
+      color: var(--vert);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+
+      .about-content {
+        flex-direction: column;
+      }
+
+      .about-text, .about-image {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <i class="fas fa-hands-helping"></i>
+      </div>
+      <h1>Teranga Craft Sénégal</h1>
+      <p>Valoriser l'artisanat sénégalais à travers la digitalisation</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-container">
+      <a href="#about"><i class="fas fa-info-circle"></i> À propos</a>
+      <a href="#products"><i class="fas fa-store"></i> Produits</a>
+      <a href="#artisans"><i class="fas fa-users"></i> Artisans</a>
+      <a href="#training"><i class="fas fa-graduation-cap"></i> Formations</a>
+      <a href="#services"><i class="fas fa-concierge-bell"></i> Services</a>
+      <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Découvrez l'excellence artisanale du Sénégal</h2>
+      <p>Des créations uniques accessibles au monde entier</p>
+      <div>
+        <a href="#products" class="btn">Visitez la boutique</a>
+        <a href="#artisans" class="btn btn-outline">Rencontrez nos artisans</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section about">
+    <div class="container">
+      <h2 class="section-title">À propos de Teranga Craft</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Notre mission est de permettre aux artisans sénégalais de faire rayonner leur savoir-faire au niveau mondial grâce à une plateforme numérique adaptée.</p>
+          <p>Nous offrons des outils de gestion moderne, de la formation et une vitrine internationale à leurs produits tout en préservant l'authenticité de l'artisanat local.</p>
+          <p>Fondé en 2020, Teranga Craft Sénégal a déjà accompagné plus de 150 artisans dans leur transformation digitale.</p>
+          <a href="#services" class="btn" style="margin-top: 1rem;">Découvrez nos services</a>
+        </div>
+        <div class="about-image">
+          <img src="C:\Users\JATECH\Downloads\Artisan sénégalais au travail.jpg" alt="Artisan sénégalais au travail">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="section products">
+    <div class="container">
+      <h2 class="section-title">Nos Catégories de Produits</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-img">
+            <img src="C:\Users\JATECH\Downloads\Bijoux Traditionnels.jpg" alt="Bijoux traditionnels">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Bijoux Traditionnels</h3>
+            <p>Colliers, bracelets et boucles d'oreilles fabriqués avec des matériaux locaux et des techniques ancestrales.</p>
+            <a href="#" class="btn">Voir la collection</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">
+            <img src="C:\Users\JATECH\Downloads\Textiles & Vêtements.jpg" alt="Textiles africains">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Textiles & Vêtements</h3>
+            <p>Boubou, tissus wax et accessoires de mode inspirés de la culture sénégalaise, tissés à la main.</p>
+            <a href="#" class="btn">Voir la collection</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">
+            <img src="C:\Users\JATECH\Downloads\Sculptures & Objets d'Art.jpg" alt="Sculptures en bois">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Sculptures & Objets d'Art</h3>
+            <p>Statues, masques et objets décoratifs taillés dans différents bois locaux par des maîtres sculpteurs.</p>
+            <a href="#" class="btn">Voir la collection</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="artisans" class="section">
+    <div class="container">
+      <h2 class="section-title">Nos Artisans Partenaires</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-img">
+            <img src="C:\Users\JATECH\Downloads\femme.png" alt="Artisan bijoutier">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Aminata Diop</h3>
+            <p><strong>Spécialité:</strong> Bijouterie traditionnelle</p>
+            <p><strong>Localisation:</strong> Dakar</p>
+            <p>"Grâce à Teranga Craft, j'ai pu atteindre des clients internationaux et préserver mon art."</p>
+            <a href="#" class="btn btn-outline" style="border-color: var(--vert); color: var(--vert);">Voir son portfolio</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">
+            <img src="C:\Users\JATECH\Downloads\homme.png" alt="Artisan sculpteur">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Mamadou Ndiaye</h3>
+            <p><strong>Spécialité:</strong> Sculpture sur bois</p>
+            <p><strong>Localisation:</strong> Thiès</p>
+            <p>"La formation en gestion m'a permis de mieux organiser mon atelier et augmenter mes revenus."</p>
+            <a href="#" class="btn btn-outline" style="border-color: var(--vert); color: var(--vert);">Voir son portfolio</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Artisan tisserand">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Fatou Bâ</h3>
+            <p><strong>Spécialité:</strong> Tissage traditionnel</p>
+            <p><strong>Localisation:</strong> Saint-Louis</p>
+            <p>"Maintenant je peux vendre mes tissus en ligne tout en continuant à transmettre mon savoir-faire."</p>
+            <a href="#" class="btn btn-outline" style="border-color: var(--vert); color: var(--vert);">Voir son portfolio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="training" class="section features">
+    <div class="container">
+      <h2 class="section-title">Nos Formations Digitales</h2>
+      <div class="grid">
+        <div class="training-card">
+          <div class="training-header">
+            <h3>Gestion de Stock</h3>
+          </div>
+          <div class="training-body">
+            <p>Apprenez à gérer efficacement vos produits en ligne et en atelier.</p>
+            <ul class="training-list">
+              <li>Organisation des stocks</li>
+              <li>Outils de gestion simples</li>
+              <li>Automatisation des processus</li>
+              <li>Calcul des coûts</li>
+            </ul>
+            <a href="#" class="btn" style="margin-top: 1rem;">S'inscrire</a>
+          </div>
+        </div>
+        <div class="training-card">
+          <div class="training-header" style="background-color: var(--jaune); color: var(--noir);">
+            <h3>Vente en Ligne</h3>
+          </div>
+          <div class="training-body">
+            <p>Maîtrisez les outils de e-commerce pour mieux vendre vos produits.</p>
+            <ul class="training-list">
+              <li>Création de boutique en ligne</li>
+              <li>Présentation des produits</li>
+              <li>Gestion des commandes</li>
+              <li>Service client</li>
+            </ul>
+            <a href="#" class="btn" style="margin-top: 1rem;">S'inscrire</a>
+          </div>
+        </div>
+        <div class="training-card">
+          <div class="training-header" style="background-color: var(--rouge);">
+            <h3>Marketing Digital</h3>
+          </div>
+          <div class="training-body">
+            <p>Développez votre présence sur les réseaux sociaux et internet.</p>
+            <ul class="training-list">
+              <li>Photographie de produits</li>
+              <li>Réseaux sociaux</li>
+              <li>Stratégie de contenu</li>
+              <li>Publicité en ligne</li>
+            </ul>
+            <a href="#" class="btn" style="margin-top: 1rem;">S'inscrire</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section services">
+    <div class="container">
+      <h2 class="section-title">Nos Services</h2>
+      <div class="grid">
+        <div class="service-item">
+          <div class="service-icon">
+            <i class="fas fa-store"></i>
+          </div>
+          <div>
+            <h3>Boutiques en Ligne</h3>
+            <p>Création de boutiques personnalisées pour chaque artisan avec nom de domaine et hébergement inclus.</p>
+          </div>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <div>
+            <h3>Accompagnement Digital</h3>
+            <p>Formation et suivi personnalisé pour maîtriser les outils numériques et développer son activité.</p>
+          </div>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">
+            <i class="fas fa-money-bill-wave"></i>
+          </div>
+          <div>
+            <h3>Paiements Sécurisés</h3>
+            <p>Intégration des moyens de paiement sécurisés (mobile money, cartes bancaires, virement).</p>
+          </div>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">
+            <i class="fas fa-shipping-fast"></i>
+          </div>
+          <div>
+            <h3>Logistique</h3>
+            <p>Solutions de livraison nationale et internationale pour expédier vos créations partout dans le monde.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">Contactez-Nous</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Coordonnées</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Rue de l'Artisanat, Dakar, Sénégal</p>
+          <p><i class="fas fa-phone"></i> +221 33 800 00 00</p>
+          <p><i class="fas fa-envelope"></i> contact@terangacraft.sn</p>
+          
+          <h3 style="margin-top: 2rem;">Horaires d'Ouverture</h3>
+          <p><i class="fas fa-clock"></i> Lundi - Vendredi: 8h - 18h</p>
+          <p><i class="fas fa-clock"></i> Samedi: 9h - 13h</p>
+          
+          <div class="social-links" style="margin-top: 2rem;">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>Envoyez-nous un Message</h3>
+          <form>
+            <div class="form-group">
+              <label for="name">Nom complet</label>
+              <input type="text" id="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Adresse email</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Sujet</label>
+              <input type="text" id="subject" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="btn">Envoyer le message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <i class="fas fa-hands-helping" style="font-size: 2rem; color: var(--jaune);"></i>
+        </div>
+        <p>Teranga Craft Sénégal valorise l'artisanat local à travers des solutions digitales adaptées.</p>
+      </div>
+      <div>
+        <h3 class="footer-title">Liens Rapides</h3>
+        <div class="footer-links">
+          <a href="#about">À propos</a>
+          <a href="#products">Produits</a>
+          <a href="#training">Formations</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h3 class="footer-title">Catégories</h3>
+        <div class="footer-links">
+          <a href="#">Bijoux</a>
+          <a href="#">Textiles</a>
+          <a href="#">Sculptures</a>
+          <a href="#">Objets décoratifs</a>
+        </div>
+      </div>
+      <div>
+        <h3 class="footer-title">Newsletter</h3>
+        <p>Abonnez-vous pour recevoir nos actualités et offres spéciales.</p>
+        <form style="margin-top: 1rem;">
+          <input type="email" placeholder="Votre email" style="width: 100%; padding: 0.5rem; border: none; border-radius: 4px;">
+          <button type="submit" class="btn" style="margin-top: 0.5rem; width: 100%; background-color: var(--jaune); color: var(--noir);">S'abonner</button>
+        </form>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 Teranga Craft Sénégal. Tous droits réservés.</p>
+    </div>
+  </footer>
+</body>
+</html>
