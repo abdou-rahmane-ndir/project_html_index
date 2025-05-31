@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Share Platform | Master/MBA 2025</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --secondary: #3498db;
+      --accent: #e74c3c;
+      --light: #ecf0f1;
+      --dark: #2c3e50;
+      --success: #27ae60;
+      --warning: #f39c12;
+      --danger: #e74c3c;
+      --gray: #95a5a6;
+      --text: #333;
+      --text-light: #7f8c8d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--dark));
+      color: white;
+      padding: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .logo i {
+      font-size: 2.5rem;
+      margin-right: 1rem;
+      color: var(--secondary);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo i {
+      margin-right: 0.5rem;
+      color: var(--secondary);
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-item {
+      margin-left: 1.5rem;
+      position: relative;
+    }
+
+    .nav-link {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-link:hover {
+      color: var(--secondary);
+    }
+
+    .nav-link i {
+      margin-right: 0.5rem;
+    }
+
+    .nav-link.active {
+      color: var(--secondary);
+      border-bottom: 2px solid var(--secondary);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--dark);
+      cursor: pointer;
+    }
+
+    /* Sections */
+    .section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+
+    .section-title h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--secondary);
+    }
+
+    .section-alt {
+      background-color: white;
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.03);
+    }
+
+    /* Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .card-icon {
+      background: var(--secondary);
+      color: white;
+      font-size: 2rem;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .card-text {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .card-list {
+      list-style: none;
+    }
+
+    .card-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+    }
+
+    .card-list li:last-child {
+      border-bottom: none;
+    }
+
+    .card-list i {
+      color: var(--secondary);
+      margin-right: 0.5rem;
+    }
+
+    /* Forms */
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--secondary);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1em;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--secondary);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: #2980b9;
+    }
+
+    .btn-block {
+      display: block;
+      width: 100%;
+    }
+
+    .btn-upload {
+      background: var(--primary);
+    }
+
+    .btn-upload:hover {
+      background: #1a252f;
+    }
+
+    /* File upload */
+    .file-upload {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .file-upload-btn {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: #f8f9fa;
+      border: 1px dashed #ddd;
+      border-radius: 4px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .file-upload-btn:hover {
+      background: #e9ecef;
+      border-color: var(--secondary);
+    }
+
+    .file-upload-input {
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    /* Status badges */
+    .badge {
+      display: inline-block;
+      padding: 0.35em 0.65em;
+      font-size: 0.75em;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: 0.25rem;
+    }
+
+    .badge-success {
+      color: white;
+      background-color: var(--success);
+    }
+
+    .badge-warning {
+      color: white;
+      background-color: var(--warning);
+    }
+
+    .badge-danger {
+      color: white;
+      background-color: var(--danger);
+    }
+
+    /* Dashboard */
+    .dashboard-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .stat-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-column h3 {
+      color: white;
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .footer-column h3::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--secondary);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: #bdc3c7;
+      text-decoration: none;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary);
+    }
+
+    .footer-links i {
+      margin-right: 0.5rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #bdc3c7;
+      font-size: 0.9rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      color: white;
+      background: rgba(255,255,255,0.1);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .social-links a:hover {
+      background: var(--secondary);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        padding: 2rem;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: right 0.3s;
+        z-index: 1001;
+      }
+
+      .nav-menu.active {
+        right: 0;
+      }
+
+      .nav-item {
+        margin: 0 0 1rem 0;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .header-content {
+        padding: 0 1rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 3rem 0;
+      }
+
+      .section-title h2 {
+        font-size: 1.75rem;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .dashboard-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .form-container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <i class="fas fa-graduation-cap"></i>
+        <div>
+          <h1>Knowledge Share Platform</h1>
+          <p class="subtitle">Master/MBA Hackathon 2025 - Excellence in Entrepreneurship</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-container">
+      <a href="#" class="nav-logo">
+        <i class="fas fa-lightbulb"></i>
+        <span>KSP</span>
+      </a>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="#ressources" class="nav-link active">
+            <i class="fas fa-book"></i>
+            <span>Ressources</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#guides" class="nav-link">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Guides</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#kits" class="nav-link">
+            <i class="fas fa-toolbox"></i>
+            <span>Kits</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#outils" class="nav-link">
+            <i class="fas fa-tools"></i>
+            <span>Outils</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#livrables" class="nav-link">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <span>Livrables</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#feedback" class="nav-link">
+            <i class="fas fa-comment-dots"></i>
+            <span>Feedback</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Resources Section -->
+    <section id="ressources" class="section section-alt">
+      <div class="container">
+        <div class="section-title">
+          <h2><i class="fas fa-book mr-2"></i> Ressources Pédagogiques</h2>
+          <p>Tout ce dont vous avez besoin pour réussir votre projet entrepreneurial</p>
+        </div>
+        
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-file-contract"></i>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Modèles Professionnels</h3>
+              <ul class="card-list">
+                <li><i class="fas fa-check-circle"></i> Business Plan complet</li>
+                <li><i class="fas fa-check-circle"></i> Pitch Deck convaincant</li>
+                <li><i class="fas fa-check-circle"></i> Budget prévisionnel</li>
+                <li><i class="fas fa-check-circle"></i> Étude de marché</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Guides Pratiques</h3>
+              <ul class="card-list">
+                <li><i class="fas fa-check-circle"></i> Validation d'idée</li>
+                <li><i class="fas fa-check-circle"></i> Stratégie marketing</li>
+                <li><i class="fas fa-check-circle"></i> Levée de fonds</li>
+                <li><i class="fas fa-check-circle"></i> Propriété intellectuelle</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Kits par Étape</h3>
+              <ul class="card-list">
+                <li><i class="fas fa-check-circle"></i> Idéation & Brainstorming</li>
+                <li><i class="fas fa-check-circle"></i> Validation du concept</li>
+                <li><i class="fas fa-check-circle"></i> Prototypage & MVP</li>
+                <li><i class="fas fa-check-circle"></i> Lancement & Scaling</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guides Section -->
+    <section id="guides" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2><i class="fas fa-graduation-cap mr-2"></i> Guides & Tutoriels</h2>
+          <p>Apprenez les meilleures pratiques entrepreneuriales</p>
+        </div>
+        
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-icon" style="background-color: #e74c3c;">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Design Thinking</h3>
+              <p class="card-text">Méthodologie complète pour l'innovation centrée sur l'utilisateur.</p>
+              <a href="#" class="btn">Accéder au guide</a>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-icon" style="background-color: #f39c12;">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Lean Startup</h3>
+              <p class="card-text">Comment valider rapidement votre idée avec un minimum d'effort.</p>
+              <a href="#" class="btn">Accéder au guide</a>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-icon" style="background-color: #27ae60;">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Growth Hacking</h3>
+              <p class="card-text">Techniques pour faire croître rapidement votre startup.</p>
+              <a href="#" class="btn">Accéder au guide</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kits Section -->
+    <section id="kits" class="section section-alt">
+      <div class="container">
+        <div class="section-title">
+          <h2><i class="fas fa-toolbox mr-2"></i> Kits par Étape du Projet</h2>
+          <p>Ressources spécifiques pour chaque phase de votre aventure entrepreneuriale</p>
+        </div>
+        
+        <div class="dashboard-stats">
+          <div class="stat-card">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Idéation</div>
+            <p>Brainstorming, SWOT, analyse de tendances</p>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Validation</div>
+            <p>Interviews, enquêtes, analyse de données</p>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Conception</div>
+            <p>Prototypage, MVP, design UX/UI</p>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Lancement</div>
+            <p>Stratégie digitale, relations presse, vente</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="outils" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2><i class="fas fa-tools mr-2"></i> Outils Recommandés</h2>
+          <p>Les meilleures plateformes pour vous aider dans votre projet</p>
+        </div>
+        
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-icon" style="background-color: #3a86ff;">
+              <i class="fab fa-trello"></i>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Gestion de Projet</h3>
+              <ul class="card-list">
+                <li><i class="fab fa-trello"></i> Trello</li>
+                <li><i class="fab fa-asymmetrik"></i> Asana</li>
+                <li><i class="fab fa-jira"></i> Jira</li>
+                <li><i class="fas fa-tasks"></i> Notion</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-icon" style="background-color: #8338ec;">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Design</h3>
+              <ul class="card-list">
+                <li><i class="fab fa-figma"></i> Figma</li>
+                <li><i class="fab fa-adobe"></i> Adobe XD</li>
+                <li><i class="fab fa-canva"></i> Canva</li>
+                <li><i class="fas fa-palette"></i> Sketch</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-icon" style="background-color: #ff006e;">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Formation</h3>
+              <ul class="card-list">
+                <li><i class="fab fa-google"></i> Google Certifications</li>
+                <li><i class="fas fa-university"></i> Coursera</li>
+                <li><i class="fas fa-laptop-code"></i> OpenClassrooms</li>
+                <li><i class="fab fa-udemy"></i> Udemy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deliverables Section -->
+    <section id="livrables" class="section section-alt">
+      <div class="container">
+        <div class="section-title">
+          <h2><i class="fas fa-cloud-upload-alt mr-2"></i> Déposer un Livrable</h2>
+          <p>Soumettez vos travaux pour évaluation par nos experts</p>
+        </div>
+        
+        <div class="form-container">
+          <form id="deliverableForm">
+            <div class="form-group">
+              <label for="projectName" class="form-label">Nom du Projet</label>
+              <input type="text" id="projectName" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="teamMembers" class="form-label">Membres de l'Équipe</label>
+              <input type="text" id="teamMembers" class="form-control" placeholder="Séparez les noms par des virgules" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="projectPhase" class="form-label">Phase du Projet</label>
+              <select id="projectPhase" class="form-control form-select" required>
+                <option value="">Sélectionnez une phase</option>
+                <option value="ideation">1. Idéation</option>
+                <option value="validation">2. Validation</option>
+                <option value="prototype">3. Prototype</option>
+                <option value="launch">4. Lancement</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="deliverableType" class="form-label">Type de Livrable</label>
+              <select id="deliverableType" class="form-control form-select" required>
+                <option value="">Sélectionnez un type</option>
+                <option value="business-plan">Business Plan</option>
+                <option value="pitch-deck">Pitch Deck</option>
+                <option value="market-research">Étude de Marché</option>
+                <option value="prototype">Prototype/MVP</option>
+                <option value="financial">Projections Financières</option>
+                <option value="other">Autre</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Fichier à Déposer</label>
+              <div class="file-upload">
+                <div class="file-upload-btn">
+                  <i class="fas fa-cloud-upload-alt"></i> Choisir un fichier
+                </div>
+                <input type="file" class="file-upload-input" id="deliverableFile" required>
+              </div>
+              <small class="text-muted">Formats acceptés: PDF, PPTX, DOCX, XLSX (Max 10MB)</small>
+            </div>
+            
+            <div class="form-group">
+              <label for="additionalNotes" class="form-label">Notes Additionnelles</label>
+              <textarea id="additionalNotes" class="form-control" rows="3"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-block btn-upload">
+              <i class="fas fa-paper-plane"></i> Soumettre le Livrable
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section id="feedback" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2><i class="fas fa-comment-dots mr-2"></i> Zone de Feedback</h2>
+          <p>Recevez des retours personnalisés sur vos travaux</p>
+        </div>
+        
+        <div class="form-container">
+          <form id="feedbackForm">
+            <div class="form-group">
+              <label for="feedbackProject" class="form-label">Projet</label>
+              <select id="feedbackProject" class="form-control form-select" required>
+                <option value="">Sélectionnez un projet</option>
+                <option value="project1">EcoTech - Solution verte</option>
+                <option value="project2">HealthTrack - App santé</option>
+                <option value="project3">EduPlus - Plateforme éducative</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="feedbackDeliverable" class="form-label">Livrable</label>
+              <select id="feedbackDeliverable" class="form-control form-select" required>
+                <option value="">Sélectionnez un livrable</option>
+                <option value="deliverable1">Business Plan v1.0</option>
+                <option value="deliverable2">Pitch Deck initial</option>
+                <option value="deliverable3">Étude de marché</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="feedbackStatus" class="form-label">Statut</label>
+              <select id="feedbackStatus" class="form-control form-select" required>
+                <option value="approved" class="text-success">✅ Validé</option>
+                <option value="revisions" class="text-warning">✏️ Révisions nécessaires</option>
+                <option value="rejected" class="text-danger">❌ Non validé</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="feedbackComments" class="form-label">Commentaires Détaillés</label>
+              <textarea id="feedbackComments" class="form-control" rows="6" required></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="feedbackResources" class="form-label">Ressources Recommandées</label>
+              <textarea id="feedbackResources" class="form-control" rows="3" placeholder="Liens, livres, outils..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-block">
+              <i class="fas fa-check-circle"></i> Envoyer le Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tracking Section -->
+    <section id="suivi" class="section section-alt">
+      <div class="container">
+        <div class="section-title">
+          <h2><i class="fas fa-chart-bar mr-2"></i> Suivi Pédagogique</h2>
+          <p>Visualisez la progression des projets et des livrables</p>
+        </div>
+        
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-icon" style="background-color: #2ecc71;">
+              <i class="fas fa-check"></i>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Livrables Validés</h3>
+              <div class="stat-number">87%</div>
+              <p>Taux moyen de validation</p>
+              <a href="#" class="btn">Voir les détails</a>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-icon" style="background-color: #f39c12;">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">En Cours</h3>
+              <div class="stat-number">24</div>
+              <p>Projets actifs</p>
+              <a href="#" class="btn">Voir les projets</a>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-icon" style="background-color: #3498db;">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Participation</h3>
+              <div class="stat-number">98%</div>
+              <p>Taux d'engagement</p>
+              <a href="#" class="btn">Analyser</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Knowledge Share Platform</h3>
+          <p>La plateforme dédiée à l'excellence entrepreneuriale pour les étudiants Master/MBA 2025.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Liens Rapides</h3>
+          <ul class="footer-links">
+            <li><a href="#ressources"><i class="fas fa-chevron-right"></i> Ressources</a></li>
+            <li><a href="#guides"><i class="fas fa-chevron-right"></i> Guides</a></li>
+            <li><a href="#kits"><i class="fas fa-chevron-right"></i> Kits</a></li>
+            <li><a href="#livrables"><i class="fas fa-chevron-right"></i> Livrables</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-question-circle"></i> FAQ</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="#"><i class="fas fa-file-alt"></i> Politique de confidentialité</a></li>
+            <li><a href="#"><i class="fas fa-gavel"></i> Conditions d'utilisation</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Knowledge Share Platform. Tous droits réservés.</p>
+        <p>Master/MBA Hackathon - Promotion 2025</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+    
+    // Form submission handlers
+    document.getElementById('deliverableForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Livrable soumis avec succès!');
+      e.target.reset();
+    });
+    
+    document.getElementById('feedbackForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Feedback envoyé avec succès!');
+      e.target.reset();
+    });
+    
+    // File upload display
+    const fileUploadInput = document.querySelector('.file-upload-input');
+    const fileUploadBtn = document.querySelector('.file-upload-btn');
+    
+    fileUploadInput.addEventListener('change', () => {
+      if (fileUploadInput.files.length > 0) {
+        fileUploadBtn.innerHTML = `<i class="fas fa-file-alt"></i> ${fileUploadInput.files[0].name}`;
+      }
+    });
+  </script>
+</body>
+</html>
